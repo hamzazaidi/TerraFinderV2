@@ -2,7 +2,6 @@
     <form class="form" [formGroup]="form">
         <div class="api-currency">
             <mat-form-field>
-                <mat-label>API</mat-label>
                 <mat-select formControlName="api">
                     <mat-option *ngFor="let apis of apis" [value]="apis">{{
                         apis
@@ -10,7 +9,6 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Currency</mat-label>
                 <mat-select formControlName="currency">
                     <mat-option *ngFor="let currency of currencies" [value]="currency">{{
                         currency
@@ -24,7 +22,7 @@
                 <mat-form-field class="full-width">
                     <mat-label>{{ searchLabel }}</mat-label>
                     <input formControlName="search" type="text" matInput placeholder="{{ searchLabel }}" (keyup.enter)="onSearch()"/>
-                    <button type="button" mat-icon-button matSuffix (click)="onSearch()">
+                    <button type="button" mat-icon-button matSuffix (click)="onSearch()" color="accent">
                         <mat-icon>search</mat-icon>
                     </button>
                 </mat-form-field>
