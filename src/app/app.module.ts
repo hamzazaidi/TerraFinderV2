@@ -18,6 +18,7 @@ import { BlockLinkComponent } from './components/block-link/block-link.component
 import { FeeBlockComponent } from './components/fee-block/fee-block.component';
 import { TimeStampBlockComponent } from './components/time-stamp-block/time-stamp-block.component';
 import { AccountNotFoundComponent } from './components/account-not-found/account-not-found.component';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { AccountNotFoundComponent } from './components/account-not-found/account
     BlockLinkComponent,
     FeeBlockComponent,
     TimeStampBlockComponent,
-    AccountNotFoundComponent
+    AccountNotFoundComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
