@@ -6,6 +6,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const Modules = [
   MatInputModule,
@@ -13,7 +15,9 @@ const Modules = [
   MatSelectModule,
   MatButtonModule,
   MatCardModule,
-  MatTableModule
+  MatTableModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({

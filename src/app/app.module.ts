@@ -12,6 +12,12 @@ import { CardComponent } from './components/card/card.component';
 import { AddressComponent } from './components/address/address.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TxHashLinkComponent } from './components/tx-hash-link/tx-hash-link.component';
+import { TypeBlockComponent } from './components/type-block/type-block.component';
+import { BlockLinkComponent } from './components/block-link/block-link.component';
+import { FeeBlockComponent } from './components/fee-block/fee-block.component';
+import { TimeStampBlockComponent } from './components/time-stamp-block/time-stamp-block.component';
+import { AccountNotFoundComponent } from './components/account-not-found/account-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +25,13 @@ import { HttpClientModule } from '@angular/common/http';
     ViewComponent,
     CardComponent,
     AddressComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    TxHashLinkComponent,
+    TypeBlockComponent,
+    BlockLinkComponent,
+    FeeBlockComponent,
+    TimeStampBlockComponent,
+    AccountNotFoundComponent
   ],
   imports: [
     BrowserModule,

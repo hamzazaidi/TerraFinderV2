@@ -1,8 +1,12 @@
 export interface TransactionData {
     txHash: string;
-    type: number;
+    type: string;
+    chainId: string;
+    height: string;
     block: string;
     timeStamp: string;
+    amount: string;
+    denom: string;
     fee: string;
 }
 
@@ -13,14 +17,21 @@ export interface TransactionResponse {
         chainId: string;
         height: string;
         txhash: string;
+        timestamp: string;
         tx: {
-            fee: {
-                denom: string;
-                amount: string
-            }[];
-            msg: {
-                type: string;
-            }[];
+            type: string;
+            value: {
+                fee: {
+                    gas: string;
+                    amount: {
+                        amount: string;
+                        denom: string;
+                    }[]
+                };
+                msg: {
+                    type: string;
+                }[];
+            }
         }
     }[]
 }

@@ -1,16 +1,28 @@
 <div class="container">
-    <h1>Account Detail</h1>
-    <app-card card-header="Address">
-        <app-address [data]="id"></app-address>
-    </app-card>    
-    <app-card card-header="Coins">
-        something
-    </app-card>    
-    <app-card card-header="Tokens">
-        something
-    </app-card>    
-    <app-card card-header="Transactions">
-        <app-transactions></app-transactions>
-        <button mat-flat-button color="primary">Primary</button>
-    </app-card>    
+    <ng-container *ngIf="isValid && !isFetching">
+        <h1>Account Detail</h1>
+        <app-card card-header="Address">
+            <app-address [data]="id"></app-address>
+        </app-card>
+        <app-card card-header="Coins">
+            
+        </app-card>
+        <app-card card-header="Tokens">
+            something
+        </app-card>
+        <app-card card-header="Transactions">
+            <app-transactions [transactionData]="transactionData"></app-transactions>
+            <mat-progress-bar mode="query" *ngIf="isFetching"></mat-progress-bar>
+            <button [disabled]="isFetching" class="load-more" mat-flat-button color="primary"
+                (click)="onLoadMore()">More</button>
+        </app-card>
+    </ng-container>
+    <ng-container *ngIf="!isValid && !isFetching">
+        <app-account-not-found [id]="id"></app-account-not-found>
+    </ng-container>
+    <ng-container *ngIf="isFetching">
+        <div class="is-loading">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-container>
 </div>
