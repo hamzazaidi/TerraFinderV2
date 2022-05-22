@@ -1,14 +1,39 @@
 <div class="container">
-    <div class="content">
-        <img src="https://hamzazaidi.github.io/TerraFinderV2/assets/logo.svg" alt="Terra Finder Logo">
-        <form class="form">
-            <mat-form-field class="full-width">
-                <mat-label>{{ searchLabel }}</mat-label>
-                <input type="text" matInput placeholder="{{ searchLabel }}" />
-                <mat-icon matSuffix>search</mat-icon>
+    <form class="form" [formGroup]="form">
+        <div class="api-currency">
+            <mat-form-field>
+                <mat-label>API</mat-label>
+                <mat-select formControlName="api">
+                    <mat-option *ngFor="let apis of apis" [value]="apis">{{
+                        apis
+                        }}</mat-option>
+                </mat-select>
             </mat-form-field>
-        </form>
-    </div>
+            <mat-form-field>
+                <mat-label>Currency</mat-label>
+                <mat-select formControlName="currency">
+                    <mat-option *ngFor="let currency of currencies" [value]="currency">{{
+                        currency
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="content">
+            <div>
+                <img src="https://hamzazaidi.github.io/TerraFinderV2/assets/logo.svg" alt="Terra Finder Logo" />
+                <mat-form-field class="full-width">
+                    <mat-label>{{ searchLabel }}</mat-label>
+                    <input formControlName="search" type="text" matInput placeholder="{{ searchLabel }}" (keyup.enter)="onSearch()"/>
+                    <button type="button" mat-icon-button matSuffix (click)="onSearch()">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
     <div class="layover-shield"></div>
-    <video class="background-video" playsinline="" autoplay="" loop=""><source src="https://finder.terra.money/static/media/terrafinder.150e140e.mp4" type="video/mp4"></video>
+    <video class="background-video" playsinline="" autoplay="" loop=""
+        poster="https://hamzazaidi.github.io/TerraFinderV2/assets/terrafinder.jpg">
+        <source src="https://hamzazaidi.github.io/TerraFinderV2/assets/terrafinder.video.mp4" type="video/mp4" />
+    </video>
 </div>

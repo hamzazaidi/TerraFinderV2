@@ -1,6 +1,5 @@
 @import '~@angular/material/theming';
-
-.container {
+@mixin domPositioning{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -9,58 +8,59 @@
     width: 100%;
     height: 100%;
     transform: translateX(-50%) translateY(-50%);    
-    .content {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
+}
+.container {
+    @include domPositioning;  
+    .form {
+        min-width: 150px;
+        max-width: 500px;
         width: 100%;
-        height: 100%;
-        transform: translateX(-50%) translateY(-50%); 
+        .full-width {
+            width: 100%;
+        }
+        .api-currency {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 1;
+            mat-form-field {
+                margin: 0 10px;
+            }
+        }
+    }
+    .content {
+       @include domPositioning();
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
+        align-items: center;   
+        > div {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            align-items: center;
+        }     
         img {
             padding-bottom: 80px;
             width: 264px;
             height: 34px;
-        }
-        .form {
-            min-width: 150px;
-            max-width: 500px;
-            width: 100%;
-            .full-width {
-                width: 100%;
-            }
-        }
+        }        
     }
 }
 
 
 
 .layover-shield {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100vw;
-    min-height: 100vh;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
+    @include domPositioning();
     z-index: -99;
     background-color: rgba(8,32,128,.85);
 }
 
 .background-video {
     z-index: -100;
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    @include domPositioning();
     min-width: 100vw;
     min-height: 100vh;
     width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
+    height: auto;    
 }
