@@ -1,12 +1,28 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span><img src="https://hamzazaidi.github.io/TerraFinderV2/assets/logo.svg" alt="Terra Finder Logo" /></span>
+        <a routerLink="/"><img src="https://hamzazaidi.github.io/TerraFinderV2/assets/logo.svg" alt="Terra Finder Logo" /></a>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>share</mat-icon>
-        </button>
+        <form [formGroup]="form">
+            <mat-form-field class="full-width">
+                <input formControlName="search" type="text" matInput placeholder="{{ searchLabel }}" (keyup.enter)="onSearch()"/>
+                <button type="button" mat-icon-button matSuffix (click)="onSearch()">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="api">
+                    <mat-option *ngFor="let apis of apis" [value]="apis">{{
+                        apis
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="currency">
+                    <mat-option *ngFor="let currency of currencies" [value]="currency">{{
+                        currency
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
     </mat-toolbar-row>
 </mat-toolbar>
